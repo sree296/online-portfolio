@@ -1,0 +1,10 @@
+export { default as reactLogo } from './img/skill/react.svg';
+export { default as jsLogo } from './img/skill/javaScript.png';
+export { default as tsLogo } from './img/skill/typeScript.png';
+export { default as sassLogo } from './img/skill/sass.svg';
+export { default as htmlLogo } from './img/skill/html.png';
+export { default as css3Logo } from './img/skill/css3.png';
+export { default as muiLogo } from './img/skill/materialReact.png';
+export { default as bootstrapLogo } from './img/skill/bootstrap.png';
+export { default as agileLogo } from './img/skill/agile.png';
+export { default as profileImg } from './img/profile.jfif';

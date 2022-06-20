@@ -1,0 +1,76 @@
+.container {
+    width: 35%;
+    font-size: 1rem;
+  }
+  
+  .step {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: cream;
+    min-height: 150px;
+  }
+  
+  .v-stepper {
+    position: relative;
+  }
+  
+  
+  /* regular step */
+  .step .circle {
+    background-color: white;
+    border: 3px solid gray;
+    border-radius: 100%;
+    width: 50px;    /* +6 for border */
+    height: 50px;
+    display: inline-block;
+
+    img {
+        border-radius: 50%;
+    }
+  }
+  
+  .step .line {
+      border-left: 3px solid gray;
+      top: 50px;
+      left: 24px;
+      height: 100%;
+      position: absolute;
+  }
+  
+  .step.completed .circle {
+    visibility: visible;
+    background-color: rgb(6,150,215);
+    border-color: rgb(6,150,215);
+  }
+  
+  .step.completed .line {
+    border-left: 3px solid rgb(6,150,215);
+  }
+  
+  .step.active .circle {
+  visibility: visible;
+    border-color: rgb(6,150,215);
+  }
+  
+  .step.empty .circle {
+      visibility: hidden;
+  }
+  
+  .step.empty .line {
+    top: 0;
+    height: 150%;
+  }
+  
+  
+  .step:last-child .line {
+    border-left: 3px solid white;
+    z-index: -1; /* behind the circle to completely hide */
+  }
+  
+  .content {
+    margin-left: 20px;
+    display: inline-block;
+    text-align: left;
+  }

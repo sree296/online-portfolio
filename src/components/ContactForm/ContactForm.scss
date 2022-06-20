@@ -1,0 +1,27 @@
+.messageInput {
+    input {
+        min-height: 100px;
+        &:focus {
+            min-height: 100px;
+        }
+    }
+}
+.contactFormWrapper {
+    min-width: 450px;
+
+    label, input {
+        color: #fff;
+    }
+
+    fieldset {
+        border-color: #fff;
+    }
+
+    .MuiSnackbar-root {
+        left: auto;
+        right: 24px;
+        > div {
+            background-color: rgb(124 230 129);
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.MuiCard-root .skillWrapper {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.MuiCard-root .MuiCardContent-root:last-child{
+    padding-bottom: 16px;
+    min-height: 85px;
+}
+
+.MuiCard-root.skillCard{
+    background-color: transparent;
+    color: #fff;
+    border: 3px solid #ccc;
+
+    img {
+        height: 65px;
+        width: 65px;
+        border-radius: 50%;
+    }
+}
