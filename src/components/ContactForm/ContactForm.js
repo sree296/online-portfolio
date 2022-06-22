@@ -1,21 +1,26 @@
+// Import packages
 import React, { useRef, useState } from 'react';
-import './ContactForm.scss';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import emailjs from '@emailjs/browser';
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
 
-// Import Constants
-import {EmailConstants} from './Contact.constants';
+// Import constants
+import { EmailConstants } from './Contact.constants';
+
+// Import styles
+import './ContactForm.scss';
 
 function ContactForm() {
     const form = useRef();
 
+    /**
+     * Represent Initial state
+     */
     const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userMessage, setUserMessage] = useState('');
-
     const [open, setOpen] = React.useState(false);
 
 
@@ -56,55 +61,66 @@ function ContactForm() {
       setOpen(false);
     };
 
+    const formInputProps = {
+        fullWidth : true,
+        variant: "outlined",
+        required: 'required',
+    };
+
     return (
         <div className="contactFormWrapper">
             <form ref={form} onSubmit={sendEmail}>
-                <h2>Write me a Message</h2> 
+                <h2>{EmailConstants.FORM_TITLE}</h2> 
                 <div style={{margin:'1rem'}}>
                     <TextField 
                         name="user_name" 
-                        fullWidth  
                         id="user_name" 
-                        label="Your Name" 
-                        variant="outlined" 
+                        label={EmailConstants.USER_NAME}
                         onChange={handleUserNameChange}
                         value={userName}
-                        required
+                        {...formInputProps}
                     />
                 </div>
                 <div style={{margin:'1rem'}}>
                     <TextField 
                         name="user_email" 
-                        fullWidth  
                         id="user_email" 
-                        label="Your Email" 
-                        variant="outlined" 
+                        label={EmailConstants.USER_EMAIL}
                         onChange={handleEmailChange}
                         value={userEmail}
-                        required
+                        {...formInputProps}
                     />
                 </div>
                 <div style={{margin:'1rem'}}>
                     <TextField 
                         name="message" 
                         className='messageInput' 
-                        fullWidth  
                         id="message" 
-                        label="Your Message" 
-                        variant="outlined" 
+                        label={EmailConstants.USER_MESSAGE} 
                         onChange={handleMessageChange}
                         value={userMessage}
-                        required
+                        {...formInputProps}
                     />
                 </div>
                 <div style={{margin:'1rem'}}>
-                    <Button type="submit" fullWidth variant="contained">Submit</Button>
+                    <Button 
+                        type="submit" 
+                        fullWidth 
+                        variant="contained">
+                        {EmailConstants.SUBMIT_BTN}
+                    </Button>
                 </div>
             </form>
-                <Snackbar open={open} autoHideDuration={10000} onClose={handleClose}>
-                    <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-                        Thank You for your message.
-                    </Alert>
+                <Snackbar 
+                    open={open} 
+                    autoHideDuration={10000} 
+                    onClose={handleClose}>
+                        <Alert 
+                            onClose={handleClose} 
+                            severity="success" 
+                            sx={{ width: '100%' }}>
+                            {EmailConstants.SUBMIT_SUCCESS_TEXT}
+                        </Alert>
                 </Snackbar>
         </div>
     )

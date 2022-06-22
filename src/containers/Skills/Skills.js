@@ -1,8 +1,11 @@
-import { Typography } from '@mui/material';
+// Import packages
 import React from 'react'
+import { Typography } from '@mui/material';
 
 // Import components
-import {Skill} from '../../components/index';
+import { Skill } from '../../components/index';
+
+// Import images
 import {
   reactLogo,
   jsLogo,
@@ -16,6 +19,7 @@ import {
 } from '../../static/index';
 
 function Skills() {
+
   const skillSet = [
     { img: reactLogo, name: 'React JS', value:'react'},
     {img: jsLogo, name: 'JavaScript', value:'javascript'},
@@ -26,10 +30,16 @@ function Skills() {
     {img: muiLogo, name: 'Material UI', value:'material'},
     {img: bootstrapLogo, name: 'Bootstrap', value:'bootstrap'},
     {img: agileLogo, name: 'Agile', value: 'agile'},
-  ]
+  ];
+
+  // render component
   return (
     <div>
-      <Typography variant="h2" sx={{paddingBottom:'2rem'}}>Skills</Typography>
+      <Typography 
+        variant="h2" 
+        sx={{paddingBottom:'2rem'}}>
+          Skills
+      </Typography>
       <Skill skillSet={skillSet}/>
     </div>
   )

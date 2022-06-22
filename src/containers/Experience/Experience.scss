@@ -1,8 +1,19 @@
+// === Classes for the Experience Container ===
+
 .container {
-    width: 35%;
-    font-size: 1rem;
+  width: 35%;
+  font-size: 1rem;
+
+  .content {
+    margin-left: 20px;
+    display: inline-block;
+    text-align: left;
   }
-  
+
+  .v-stepper {
+    position: relative;
+  }
+
   .step {
     padding: 10px;
     display: flex;
@@ -10,14 +21,23 @@
     justify-content: flex-start;
     background-color: cream;
     min-height: 150px;
+  
+    .line {
+      border-left: 3px solid gray;
+      top: 50px;
+      left: 24px;
+      height: 100%;
+      position: absolute;
+    }
+  
+    &:last-child {
+      .line {
+        border-left: 3px solid white;
+        z-index: -1;
+      }
+    } 
   }
   
-  .v-stepper {
-    position: relative;
-  }
-  
-  
-  /* regular step */
   .step .circle {
     background-color: white;
     border: 3px solid gray;
@@ -25,52 +45,40 @@
     width: 50px;    /* +6 for border */
     height: 50px;
     display: inline-block;
-
+  
     img {
         border-radius: 50%;
     }
   }
+    
+  .step.completed {
+      .circle {
+        visibility: visible;
+        background-color: rgb(6,150,215);
+        border-color: rgb(6,150,215);
+      }
   
-  .step .line {
-      border-left: 3px solid gray;
-      top: 50px;
-      left: 24px;
-      height: 100%;
-      position: absolute;
+      .line {
+        border-left: 3px solid rgb(6,150,215);
+      }
   }
   
-  .step.completed .circle {
-    visibility: visible;
-    background-color: rgb(6,150,215);
-    border-color: rgb(6,150,215);
+  .step.active {
+      .circle {
+        visibility: visible;
+        border-color: rgb(6,150,215);
+      }
   }
+
+  .step.empty {
+      .circle {
+        visibility: hidden;
+      }
   
-  .step.completed .line {
-    border-left: 3px solid rgb(6,150,215);
+      .line {
+        top: 0;
+        height: 150%;
+      }
   }
-  
-  .step.active .circle {
-  visibility: visible;
-    border-color: rgb(6,150,215);
-  }
-  
-  .step.empty .circle {
-      visibility: hidden;
-  }
-  
-  .step.empty .line {
-    top: 0;
-    height: 150%;
-  }
-  
-  
-  .step:last-child .line {
-    border-left: 3px solid white;
-    z-index: -1; /* behind the circle to completely hide */
-  }
-  
-  .content {
-    margin-left: 20px;
-    display: inline-block;
-    text-align: left;
-  }
+
+}

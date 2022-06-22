@@ -1,8 +1,10 @@
-// Import Components
+// Import packages
 import {
   Route,
   Routes,
 } from 'react-router-dom';
+
+// Import components
 import {
   Contact,
   Experience,
@@ -12,7 +14,7 @@ import {
   Skills,
 } from './containers';
 
-// Import Styles
+// Import styles
 import './App.scss';
 
 function App() {
